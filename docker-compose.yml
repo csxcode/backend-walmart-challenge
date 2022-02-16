@@ -1,0 +1,49 @@
+version: "3.3"
+
+services:
+  mongodb:
+    container_name: walmart-database
+    image: mongo:3.6.8
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=$DB_USER
+      - MONGO_INITDB_ROOT_PASSWORD=$DB_PASSWORD
+    ports:
+      - $DB_PORT:27017
+    volumes:
+      - .docker/database:/database
+    networks:
+      - walmart-network
+  api:
+    container_name: walmart-api
+    depends_on:
+      - mongodb
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: nodejs:14.8.0-stretch
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      - NODE_ENV=$NODE_ENV
+      - SERVER_PORT=$SERVER_PORT
+      - DB_HOST=$DB_HOST
+      - DB_PORT=$DB_PORT
+      - DB_DATABASE=$DB_DATABASE
+      - DB_USER=$DB_USER
+      - DB_PASSWORD=$DB_PASSWORD    
+    ports:
+       - $SERVER_PORT:$SERVER_PORT
+    volumes:
+      - .:/usr/node/app
+      - /usr/node/app/build
+      - /usr/node/app/node_modules
+    networks:
+      - walmart-network
+    command: >
+      npm run dev
+
+networks:
+  walmart-network:
+    driver: bridge

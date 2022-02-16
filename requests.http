@@ -1,1 +1,27 @@
-GET http://localhost:3030/ping
+@api = http://localhost:3040
+
+### Get all products without any filters (paginated)
+GET {{api}}/products/search
+
+
+### Get all product of page 2 with a limit of 5 (paginated)
+GET {{api}}/products/search?page=2&limit=5
+
+
+### Get product by ID of palindrome type (only one by ID)
+GET {{api}}/products/search?id=121
+
+
+### Get products by brand or description of palindrome type
+GET {{api}}/products/search?search=adda
+
+
+### Get products by brand or description without be palindrome
+GET {{api}}/products/search?search=nvnac
+
+
+### Get product by ID without be palindrome
+GET {{api}}/products/search?id=300
+
+
+
