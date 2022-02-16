@@ -1,11 +1,12 @@
+import 'reflect-metadata';
 import {loadConfig} from './infrastructure/config'
-import {loadWebServer} from './infrastructure/server/server'
-import {loadDBConnection} from './infrastructure/db'
+import {loadWebServer} from './infrastructure/server'
+import {loadDBConnection} from './infrastructure/db/mongodb'
 
 async function main() {
   const appConfig = loadConfig()
-  const dbModule = loadDBConnection({dbUri: appConfig.DB_URI})
-  const webServerModule = loadWebServer({port: appConfig.PORT})
+  const dbModule = loadDBConnection(appConfig)
+  const webServerModule = loadWebServer({port: appConfig.SERVER_PORT})
 
   await dbModule.start()
   webServerModule.start()
