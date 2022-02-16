@@ -2,6 +2,7 @@ docker-build:
 	sudo docker-compose up -d --no-deps --build
 
 import-data:
+	sudo docker exec walmart-database bash -c 'chmod 777 /database/import.sh'
 	sudo docker exec walmart-database bash -c '/database/import.sh localhost'
 
 docker-down:
