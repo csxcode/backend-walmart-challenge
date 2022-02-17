@@ -82,5 +82,12 @@ GET {{api}}/products/search?id=300
 ```console
 make docker-down
 ```
+<br>
 
+### Run Tests 🧪
 
+> Some tests for palindrome cases: 
+
+```console
+npm run test
+```
