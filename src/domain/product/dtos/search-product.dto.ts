@@ -13,6 +13,6 @@ export class SearchProductItemResponseDto {
   original_price: number | undefined;
   price: number | undefined;
   has_discount: boolean | undefined;
-  discountPercentage: number | undefined;
+  discount_percentage: number | undefined;
   discount: number | undefined;
 }

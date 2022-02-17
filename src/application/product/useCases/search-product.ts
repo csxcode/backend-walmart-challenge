@@ -37,11 +37,11 @@ export class SearchProductUseCase {
       dto.id = item.id;
       dto.brand = item.brand;
       dto.description = item.description;
-      dto.image = item.image;
+      dto.image = `http://${item.image}`;
       dto.original_price = item.price;
       dto.price = newPrice;
       dto.has_discount = hasDiscount;
-      dto.discountPercentage = discountPercentage;
+      dto.discount_percentage = discountPercentage;
       dto.discount = discount;
 
       return dto;      

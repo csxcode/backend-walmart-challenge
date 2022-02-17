@@ -39,6 +39,7 @@ services:
       - .:/usr/node/app
       - /usr/node/app/build
       - /usr/node/app/node_modules
+      - ./deploy/default.conf:/etc/nginx/sites-available/default
     networks:
       - walmart-network
     command: >

@@ -3,6 +3,8 @@
 This code was developed in order to do the challenge of test of full-stack-developer for walmart using node (typescript), mongodb as database, clean code and clean architecture and deploy with docker.
 
 
+**Live Demo 💣** : http://64.227.26.164:3040/products/search
+
 ## Installation
 
 First of all we need to set up the .env file, in this case this file already exists but it is only for test purpose, in production cases or another environnments this file must not be upload to the repository.
