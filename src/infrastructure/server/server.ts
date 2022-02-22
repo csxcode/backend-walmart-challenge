@@ -4,7 +4,7 @@ import bodyparser from 'koa-bodyparser'
 import Router from 'koa-router'
 import logger from 'koa-logger'
 import cors from '@koa/cors'
-import {errorHandler} from './ middlewares/error-handler'
+import {errorHandler} from './middlewares/error-handler'
 import {loadRoutes} from './routes'
 
 interface WebServerOptions {
